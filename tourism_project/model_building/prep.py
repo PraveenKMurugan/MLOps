@@ -1,7 +1,7 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
 import os
-
+ 
 # Define the path to the dataset
 DATA_PATH = 'tourism_project/data/tourism.csv'
 
