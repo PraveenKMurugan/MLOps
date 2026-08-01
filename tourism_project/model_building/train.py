@@ -13,7 +13,7 @@ import os
 # Set MLflow tracking URI (can be a local directory or a remote server)
 # For GitHub Actions, we'll use a local directory that gets committed
 # to allow the UI to inspect runs. For local, we can use a server.
-# mlflow.set_tracking_uri("http://localhost:5000") # Uncomment for local MLflow server
+mlflow.set_tracking_uri("http://localhost:5000") # Uncomment for local MLflow server
 
 # Load the datasets
 X_train = pd.read_csv('Xtrain.csv')
