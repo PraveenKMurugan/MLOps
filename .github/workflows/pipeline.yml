@@ -67,7 +67,8 @@ jobs:
         with:
           name: data-splits
       - name: Start MLflow Server
-        run: |n          nohup mlflow ui --host 0.0.0.0 --port 5000 &  # Run MLflow UI in the background
+        run: |
+          nohup mlflow ui --host 0.0.0.0 --port 5000 &  # Run MLflow UI in the background
           sleep 5  # Wait for a moment to let the server starts
       - name: Model Building
         run: python tourism_project/model_building/train.py
@@ -77,6 +78,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+          git pull origin main # Pull latest changes from main before pushing
           git add tourism_project/deployment/best_model.joblib   # path to the saved model file
           git commit -m "Add trained model [skip ci]" || echo "No changes to commit"
           git push
