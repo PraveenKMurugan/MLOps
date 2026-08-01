@@ -22,6 +22,8 @@ jobs:
         run: pip install -r tourism_project/requirements.txt
       - name: Register Dataset
         run: python tourism_project/model_building/data_register.py
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
       - name: Upload Registered Dataset
         uses: actions/upload-artifact@v4
         with:
