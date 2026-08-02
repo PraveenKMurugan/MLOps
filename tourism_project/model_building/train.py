@@ -10,9 +10,6 @@ import joblib
 import mlflow
 import os
 
-# Set MLflow tracking URI (can be a local directory or a remote server)
-# For GitHub Actions, we'll use a local directory that gets committed
-# to allow the UI to inspect runs. For local, we can use a server.
 mlflow.set_tracking_uri("http://localhost:5000") # Uncomment for local MLflow server
 
 # Load the datasets
@@ -21,8 +18,6 @@ X_test = pd.read_csv('Xtest.csv')
 y_train = pd.read_csv('ytrain.csv').squeeze() # .squeeze() to convert DataFrame to Series
 y_test = pd.read_csv('ytest.csv').squeeze()
 
-# Define preprocessing steps
-# Identify categorical and numerical columns
 categorical_cols = X_train.select_dtypes(include=['object', 'category']).columns
 numerical_cols = X_train.select_dtypes(include=['number']).columns
 
